@@ -1,0 +1,16 @@
+ola
+carlos rua_do_pao 88557799
+joao rua_da_pera 99778800
+renato rua_da_maca 77665599
+ola
+barlos rua_do_pao 88557799
+woao rua_da_pera 99778800
+penato rua_da_maca 77665599
+ola
+marlos rua_do_pao 88557799
+toao rua_da_pera 99778800
+qenato rua_da_maca 77665599
+end
+rena rua_do_pao 88557799
+joao rua_da_pera 99778800
+rena rua_da_maca 77665599
