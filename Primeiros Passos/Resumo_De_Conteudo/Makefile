@@ -15,6 +15,10 @@ struct_prontuario: struct_prontuario.c
 	gcc -Wall -g struct_prontuario.c -o output
 	./output <struct_prontuario.txt
 
+insertion_sort: insertion_sort.cpp
+	g++ -Wall -g insertion_sort.cpp -o output
+	./output
+
 clean:
 	rm output
 
