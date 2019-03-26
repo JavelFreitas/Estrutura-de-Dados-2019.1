@@ -19,6 +19,10 @@ insertion_sort: insertion_sort.cpp
 	g++ -Wall -g insertion_sort.cpp -o output
 	./output
 
+quick: quick_sort.cpp
+	g++ -Wall -g quick_sort.cpp -o output
+	./output <quick_sort.txt
+
 clean:
 	rm output
 
