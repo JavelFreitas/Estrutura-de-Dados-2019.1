@@ -2,27 +2,38 @@
 
 using namespace std;
 
-int particionar(){
+int particionar(int vec[], int seed, int end){
+    int pivo = vec[seed];
+    int esq = seed + 1;
+    int dir = end;
+    int divisor = 0;
+    int aux = 0;
 
+    while(esq < dir){
+        while((vec[esq]<=pivo) && (esq <=end)){esq++;}
+        while((vec[dir]>pivo) && (dir >= seed)){dir++;}
+        if(esq<dir){
+            aux = vec[esq];
+            vec[esq] = vec[dir];
+            vec[dir] = aux;    
+        }
+    }
+    divisor = dir;
+    if(vec[seed]>vec[divisor]){
+        aux = vec[seed];
+        vec[seed] = vec[divisor];
+        vec[divisor] = aux;    
+    }
+    return divisor;
 }
 
 void recursiva(int vec[], int seed, int end){
-    int esq = seed + 1;
-    int dir = end;
-    int aux = 0;
-
-    while(esq <= dir){
-        if(vec[esq] > vec[dir]){
-            aux = vec[esq];
-            vec[esq] = vec[dir];
-            vec[dir] = aux;
-        }
-        esq++;
-        dir--;
+    if(seed < end){
+        int divisor = particionar(vec, seed, end);
+        recursiva(vec, seed, divisor-1);
+        recursiva(vec, divisor+1, end);
     }
-    aux = vec[seed];
-    vec[seed] = vec[dir];
-    vec[dir] = aux;
+    
 }
 
 int main(){

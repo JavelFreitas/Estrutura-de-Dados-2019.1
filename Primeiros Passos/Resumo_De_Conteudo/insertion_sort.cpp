@@ -4,7 +4,7 @@ using namespace std;
 int main(){
     int vec[5] = {6, 5, 12, 1, 7};
     int temp = 0;
-    for(int i = 1; i < 5; i++) //FIXME não ta funcionando, tenta refazer
+    for(int i = 1; i < 5; i++) // não ta funcionando, tenta refazer
     {
         temp = vec[i];
         for(int j = i-1; j >= 0; j--)
