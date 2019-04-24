@@ -1,4 +1,14 @@
-struct Pilha;
+struct No
+{
+    int valor;
+    No *prox;
+};
+
+struct Pilha
+{
+    int q_elem;
+    No *topo;
+};
 
 Pilha *criar();
 

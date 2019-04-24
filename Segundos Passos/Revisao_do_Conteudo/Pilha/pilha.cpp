@@ -17,8 +17,10 @@ Pilha *criar()
 void inserir(Pilha *p, int valor)
 {
     if (cheia(p))
+    {
         std::cout << "Está cheio" << std::endl;
-    return;
+        return;
+    }
     p->topo += 1;
     p->v[p->topo] = valor;
 }
@@ -50,10 +52,13 @@ int cheia(Pilha *p)
 
 void imprimir(Pilha *p)
 {
-    if(vazia(p)){
+    if (vazia(p))
+    {
         std::cout << "Está vazia" << std::endl;
-    }else{
-        std::cout << p->topo << " é o valor no topo" << std::endl; 
+    }
+    else
+    {
+        std::cout << p->v[p->topo] << " é o valor no topo" << std::endl;
     }
 }
 
