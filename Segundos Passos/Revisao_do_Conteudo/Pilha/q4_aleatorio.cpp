@@ -1,4 +1,4 @@
-#include <iostream> //REVIEW tenta revolver as questões aqui
+#include <iostream>
 #include <sstream>
 #include <time.h>
 #include <stdlib.h>
