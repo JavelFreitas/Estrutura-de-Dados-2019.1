@@ -1,7 +1,13 @@
-#include "fila.h"
 #include <iostream>
+#include "fila.h"
 #define MAXIMO 5
 using namespace std;
+
+struct No
+{
+    int info;
+    No *prox;
+};
 
 struct Fila
 {
@@ -10,11 +16,6 @@ struct Fila
     int n_elem;
 };
 
-struct No
-{
-    int info;
-    No *prox;
-};
 
 Fila *criar()
 {
@@ -49,18 +50,18 @@ int remover(Fila *f) //TODO como que faz a remoção do primeiro nó(no caso aqu
 {                    // de modo que os outros substituam o proximo?
     if (!vazia(f))
     {
-        No *aux = f->ultimo;
-        while (aux != f->primeiro)
-        {
-            aux = aux->prox;
-        }
-
-        f->primeiro;
+        int aux = f->primeiro->info;
+        No* pont = f->primeiro;
+        f->primeiro = f->primeiro->prox;
+        free(pont);
+        f->n_elem--;
+        return aux;
     }
     else
     {
         cout << "Não foi possível remover";
     }
+
 }
 
 int vazia(Fila *f)
@@ -93,6 +94,10 @@ int cheia(Fila *f)
 
 void imprimir(Fila *f)
 {
-    cout << "O ultimo elemento é o " << f->ultimo << endl;
-    cout << "O primeiro elemento é o " << f->primeiro << endl;
+    if(f->n_elem == -1){
+        cout << "Nenhum elemento na lista";
+        return;
+    }
+    cout << "O ultimo elemento é o " << f->ultimo->info << endl;
+    cout << "O primeiro elemento é o " << f->primeiro->info << endl;
 }
