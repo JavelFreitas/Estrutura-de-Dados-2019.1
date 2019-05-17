@@ -3,11 +3,7 @@
 #define MAXIMO 5
 using namespace std;
 
-struct No
-{
-    int info;
-    No *prox;
-};
+struct No;
 
 struct Fila
 {
@@ -16,6 +12,11 @@ struct Fila
     int n_elem;
 };
 
+struct No
+{
+    int info;
+    No *prox;
+};
 
 Fila *criar()
 {

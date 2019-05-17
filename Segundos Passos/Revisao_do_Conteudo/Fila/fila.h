@@ -1,9 +1,6 @@
-struct Fila
-{
-    No *ultimo;
-    No *primeiro;
-    int n_elem;
-};
+struct No;
+
+struct Fila;
 
 Fila* criar();
 
