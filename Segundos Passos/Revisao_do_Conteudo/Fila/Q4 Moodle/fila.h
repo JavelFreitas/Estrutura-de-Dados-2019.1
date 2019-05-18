@@ -1,6 +1,6 @@
 typedef struct fila Fila;
 
-Fila* criar();
+Fila *criar();
 
 void inserir(Fila *f, int valor);
 

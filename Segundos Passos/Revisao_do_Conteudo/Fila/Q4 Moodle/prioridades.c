@@ -41,18 +41,19 @@ int main()
             break;
 
         case 3:
-            if(vazia(geral) && vazia(prioritaria)){
+            if (vazia(geral) && vazia(prioritaria))
+            {
                 printf("Filas vazias, tente outro comando.\n");
                 break;
             }
-            
+
             if ((!vazia(prioritaria)) && (tresTurnos <= 3))
             {
                 printf("O cliente Prioritario-%d é o próximo a ser atendido\n", remover(prioritaria));
                 tresTurnos++;
                 break;
             }
-            
+
             printf("O cliente Geral-%d é o próximo a ser atendido\n", remover(geral));
             tresTurnos = 0;
             break;
@@ -64,9 +65,10 @@ int main()
         case 5:
             printf("Encerrando...\n");
             return 0;
-        
+
         case 6:
-            if(vazia(geral) && vazia(prioritaria)){
+            if (vazia(geral) && vazia(prioritaria))
+            {
                 numeroAtendimento = 0;
                 printf("Numero de atendimento zerado.\n");
                 break;
