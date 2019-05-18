@@ -1,15 +1,15 @@
 #define N 20
 
 typedef struct Pilha{
-   int v[N];
+   char s[N];
    int topo;
 }Pilha;
 
 Pilha* criar();
 
-void inserir(Pilha *p, int valor);
+void inserir(Pilha *p, char valor);
 
-int remover(Pilha *p);
+char remover(Pilha *p);
 
 int vazia(Pilha *p);
 
