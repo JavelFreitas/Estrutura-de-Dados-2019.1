@@ -18,7 +18,8 @@ int main()
     Fila *prioritaria = criar();
     Fila *geral = criar();
     int tresTurnos = 0;
-    int numeroAtendimento = 0;
+    int numeroAtendimentoGeral = 0;
+    int numeroAtendimentoPrio = 0;
     int op = 0;
 
     menu();
@@ -29,15 +30,15 @@ int main()
         switch (op)
         {
         case 1:
-            numeroAtendimento++;
-            printf("seu numero do atendimento é : Geral-%d\n", numeroAtendimento);
-            inserir(geral, numeroAtendimento);
+            numeroAtendimentoGeral++;
+            printf("seu numero do atendimento é : Geral-%d\n", numeroAtendimentoGeral);
+            inserir(geral, numeroAtendimentoGeral);
             break;
 
         case 2:
-            numeroAtendimento++;
-            printf("seu numero do atendimento é : Prioritario-%d\n", numeroAtendimento);
-            inserir(prioritaria, numeroAtendimento);
+            numeroAtendimentoPrio++;
+            printf("seu numero do atendimento é : Prioritario-%d\n", numeroAtendimentoPrio);
+            inserir(prioritaria, numeroAtendimentoPrio);
             break;
 
         case 3:
@@ -69,7 +70,8 @@ int main()
         case 6:
             if (vazia(geral) && vazia(prioritaria))
             {
-                numeroAtendimento = 0;
+                numeroAtendimentoGeral = 0;
+                numeroAtendimentoPrio = 0;
                 printf("Numero de atendimento zerado.\n");
                 break;
             }
