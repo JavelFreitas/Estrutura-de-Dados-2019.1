@@ -16,9 +16,11 @@ Lista *intercalar(Lista *l, Lista *r){
             qtd_elem++;
         }
     }
+    int aux2 = 0;
     while(qtd_elem != 0){
-        inserir(retorno, remover(aux, qtd_elem-1),0);
+        inserir(retorno, remover(aux, qtd_elem-1),aux2);
         qtd_elem--;
+        aux2++;
     }
     return retorno;
 }
@@ -56,6 +58,6 @@ int main(){
         printf("%d", temp->valor);
         temp = temp->prox;
     }
-    
+
     return 0;
 }
