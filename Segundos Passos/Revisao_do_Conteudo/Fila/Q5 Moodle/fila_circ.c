@@ -1,14 +1,8 @@
 //#include <malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "fila.h"
+#include "fila_circ.h"
 #define N 10
-
-struct fila{
-   int v[N];
-   int qtd_elem;
-   int ini, fim;
-};
 
 Fila* criar(){
    Fila *f = (Fila*) malloc(sizeof(Fila));

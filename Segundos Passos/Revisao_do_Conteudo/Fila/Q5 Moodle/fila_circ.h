@@ -1,4 +1,10 @@
-typedef struct fila Fila;
+#define N 10
+
+typedef struct fila{
+   int v[N];
+   int qtd_elem;
+   int ini, fim;
+}Fila;
 
 Fila *criar();
 
