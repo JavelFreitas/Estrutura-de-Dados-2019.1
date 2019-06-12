@@ -10,8 +10,17 @@ typedef struct jogador{
 }Jogador;
 
 typedef struct baralho{
-    int cartas[13];
-}Baralho;
+    int cartas[13]; 
+}Baralho;           
+
+Baralho *criarBaralho(){
+    Baralho *novo = (Baralho*)malloc(sizeof(Baralho));
+    int i = 0;
+    for(i = 0; i<12 ;i++){
+        novo->cartas[i] = 0;
+    }
+    return novo;
+}
 
 Jogador *criarJogador(){
     Jogador *novo_jogador = (Jogador*)malloc(sizeof(Jogador));
@@ -22,11 +31,28 @@ Jogador *criarJogador(){
     return novo_jogador;
 }
 
-Baralho *embaralhar(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){
+void embaralhar(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){
     int carta = 0;
-    Baralho baralho;
+    int qtd_cartas_jogador = 0;
+    Baralho *embaralho = criarBaralho();
     
+    while(qtd_cartas_jogador != 10){
+        carta = ((rand() % 13) + 1);
+        while(carta != 0){
+            if(embaralho->cartas[carta] < 4){
+                inserir(jog_first->baralho, carta);
+                embaralho->cartas[carta]++;
+                carta = 0;
+            }
+            carta++;
+            if(carta == 13)
+        }
+        
 
+
+
+        qtd_cartas_jogador++;
+    }
     
 
 
@@ -39,8 +65,17 @@ Jogador *vencedor(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){
 
 void rodada(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){  // fixo 10 rodadas, uma por carta;
     int carta_um = remover(jog_first->baralho, buscarMenor()); // falta criar essa estrutura pra retornar o menor valor da árvore;
-    int carta_dois = remover(jog_first);
-    int carta_tres;
+    int carta_dois = remover(jog_sec->baralho, buscarMenor());
+    int carta_tres = remover(jog_third->baralho, buscarMenor());
+    if(carta_um >= carta_dois && carta_um >= carta_tres){
+        jog_first->pontuacao++;
+    }
+    if(carta_dois >= carta_um && carta_dois >= carta_tres){
+        jog_sec->pontuacao++;
+    }
+    if(carta_tres >= carta_um && carta_tres >= carta_dois){
+        jog_third->pontuacao++;
+    }
 
 }
 
