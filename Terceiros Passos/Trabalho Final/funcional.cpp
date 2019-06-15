@@ -1,8 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 using namespace std;
 
 int main(){
-    int qtd_cartas_jogador = 0;
-    while(qtd_cartas_jogador != 10){ printf("%d\n", ((rand() % 13) + 1) ); qtd_cartas_jogador++;}
+    srand(time(NULL));
+    int carta = ((rand() % 13) + 1);
+    int i = 0;
+    while( i < 10){
+        carta = ((rand() % 13) + 1);
+        printf("%d\n", carta);
+        i++;
+    }
 }
