@@ -5,6 +5,7 @@
 typedef struct jogador{
     int baralho[13];
     int pontuacao;
+    int vitorias;
 }Jogador;
 
 typedef struct baralho{
@@ -61,6 +62,7 @@ void embaralhar(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){
         darCarta(jog_third, embaralho);
         qtd_cartas_jogador++;
     }
+
 }
 
 int buscarMenor(Jogador *jog){
@@ -73,21 +75,24 @@ int buscarMenor(Jogador *jog){
 
 int remover(Jogador *jog, int i){
     jog->baralho[i]--;
-    return 0;
+    return i;
 }
 
 void rodada(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){  //NOTE  fixo 10 rodadas, uma por carta;
     int carta_um = remover(jog_first, buscarMenor(jog_first)); //NOTE  falta criar essa estrutura pra retornar o menor valor da árvore;
     int carta_dois = remover(jog_sec, buscarMenor(jog_sec));
     int carta_tres = remover(jog_third, buscarMenor(jog_third));
-    if(carta_um >= carta_dois && carta_um >= carta_tres){
+    if((carta_um >= carta_dois) && (carta_um >= carta_tres)){
         jog_first->pontuacao++;
+        printf("Jogador 1 \n"); 
     }
-    if(carta_dois >= carta_um && carta_dois >= carta_tres){
+    if((carta_dois >= carta_um) && (carta_dois >= carta_tres)){
         jog_sec->pontuacao++;
+        printf("Jogador 2\n"); 
     }
-    if(carta_tres >= carta_um && carta_tres >= carta_dois){
+    if((carta_tres >= carta_um) && (carta_tres >= carta_dois)){
         jog_third->pontuacao++;
+        printf("Jogador 3\n"); 
     }
 
 }
@@ -125,12 +130,16 @@ int main(){
 
 
     int i = 0;
+    embaralhar(jog_, jog_2, jog_3);
     while(i < 10){
-        embaralhar(jog_, jog_2, jog_3);
+        mostrarCartas(jog_);
+        mostrarCartas(jog_2);
+        mostrarCartas(jog_3);
         rodada(jog_, jog_2, jog_3);
-        liberar(jog_, jog_2, jog_3);
         i++;
     }
+    //TODO Estrutura da partida
+    //TODO Determina vencedor
     printf("Lista de Vencedores: \n");
     if(jog_->pontuacao >= jog_2->pontuacao && jog_->pontuacao >= jog_2->pontuacao){
         printf("Jogador 1\n");   
@@ -147,5 +156,6 @@ int main(){
     mostrarCartas(jog_2);
     mostrarCartas(jog_3);
 
+    //liberar(jog_, jog_2, jog_3);
     return 0;
 }
