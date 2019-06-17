@@ -89,7 +89,7 @@ void inserir(Arvore *a, int valor){
                     temp = temp->dir;
                     pos = DIREITA;
                 } else if(valor == temp->valor){
-                     printf("Valor já existe na árvore");
+                     printf("Valor já existe na árvore\n");
                     free(n);
                     return;
                     }
