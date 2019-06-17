@@ -2,6 +2,17 @@
 #include <stdlib.h>
 #include <time.h>
 
+/*
+    Funções que vou usar da estrutura da árvore dentro da main:
+    inserir(jog_, carta);               insere carta no baralho do jogador, carta é inteiro
+    zerar(jog_);                        libera memoria das cartas do jogador
+    int remover(Jogador *jog, int i);   remove do jogador um valor
+    buscarMenor(jog_first);             busca o menor valor de int do baralho do jogador
+*/
+
+
+
+
 typedef struct jogador{
     int baralho[13];
     int pontuacao;
@@ -80,7 +91,7 @@ int remover(Jogador *jog, int i){
 
 void rodada(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){  //NOTE  fixo 10 rodadas, uma por carta;
     int carta_um = remover(jog_first, buscarMenor(jog_first)); //NOTE  falta criar essa estrutura pra retornar o menor valor da árvore;
-    int carta_dois = remover(jog_sec, buscarMenor(jog_sec));
+    int carta_dois = remover(jog_sec, buscarMenor(jog_sec));    //FIXME no codigo real, manda a arvore
     int carta_tres = remover(jog_third, buscarMenor(jog_third));
     if((carta_um >= carta_dois) && (carta_um >= carta_tres)){
         jog_first->pontuacao++;
