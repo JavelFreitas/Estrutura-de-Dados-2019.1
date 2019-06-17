@@ -105,7 +105,14 @@ void rodada(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){  //NOTE  
         jog_third->pontuacao++;
         printf("Jogador 3\n"); 
     }
+}
 
+void partida(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third, int qtd_part){
+
+    for(int i = 0; i<qtd_part;i++){
+        rodada(jog_first, jog_sec, jog_third);
+    }
+    
 }
 
 void mostrarCartas(Jogador *jog_){
@@ -122,7 +129,7 @@ int main(){
     Jogador *jog_2 = (Jogador*)malloc(sizeof(Jogador));
     Jogador *jog_3 = (Jogador*)malloc(sizeof(Jogador));
     Baralho *embaralho = (Baralho*)malloc(sizeof(Baralho));
-    int qtd_cartas = 0;
+    int qtd_partidas = 0;
 
     for(int i = 0; i<13 ; i++){
 
@@ -134,6 +141,8 @@ int main(){
 
         embaralho->cartas[i] = 0;
     }
+
+    // tenta iniciar o jogo depois daqui, dando a opcao de ver as cartas dos jogadores.
 
     mostrarCartas(jog_);
     mostrarCartas(jog_2);
@@ -152,7 +161,7 @@ int main(){
     //TODO Estrutura da partida
     //TODO Determina vencedor
     printf("Lista de Vencedores: \n");
-    if(jog_->pontuacao >= jog_2->pontuacao && jog_->pontuacao >= jog_2->pontuacao){
+    if(jog_->pontuacao >= jog_2->pontuacao && jog_->pontuacao >= jog_3->pontuacao){
         printf("Jogador 1\n");   
     }
     if(jog_2->pontuacao >= jog_->pontuacao && jog_2->pontuacao >= jog_3->pontuacao){
@@ -162,7 +171,6 @@ int main(){
         printf("Jogador 3\n");   
     }
 
-    printf("%d\n", qtd_cartas);
     mostrarCartas(jog_);
     mostrarCartas(jog_2);
     mostrarCartas(jog_3);
