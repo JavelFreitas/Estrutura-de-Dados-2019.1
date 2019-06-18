@@ -2,17 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-/*
-    Funções que vou usar da estrutura da árvore dentro da main:
-    inserir(jog_, carta);               insere carta no baralho do jogador, carta é inteiro
-    zerar(jog_);                        libera memoria das cartas do jogador
-    int remover(Jogador *jog, int i);   remove do jogador um valor
-    buscarMenor(jog_first);             busca o menor valor de int do baralho do jogador
-*/
-
-
-
-
 typedef struct jogador{
     int baralho[13];
     int pontuacao;
@@ -62,6 +51,7 @@ void liberar(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){
     zerar(jog_sec);
     zerar(jog_third);
 }
+
 void embaralhar(Jogador *jog_first, Jogador *jog_sec, Jogador *jog_third){
     int carta = 0;
     int qtd_cartas_jogador = 0;
